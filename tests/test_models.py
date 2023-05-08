@@ -4,9 +4,9 @@ import pytest
 
 def test_to_dict_no_missing_data():
     # Arrange
-    test_data = Book(id = 1,
-                    title="Ocean Book",
-                    description="watr 4evr")
+    test_data = Book(id=1,
+                     title="Ocean Book",
+                     description="watr 4evr")
 
     # Act
     result = test_data.to_dict()
@@ -20,7 +20,7 @@ def test_to_dict_no_missing_data():
 def test_to_dict_missing_id():
     # Arrange
     test_data = Book(title="Ocean Book",
-                    description="watr 4evr")
+                     description="watr 4evr")
 
     # Act
     result = test_data.to_dict()
@@ -34,7 +34,7 @@ def test_to_dict_missing_id():
 def test_to_dict_missing_title():
     # Arrange
     test_data = Book(id=1,
-                    description="watr 4evr")
+                     description="watr 4evr")
 
     # Act
     result = test_data.to_dict()
@@ -47,8 +47,8 @@ def test_to_dict_missing_title():
 
 def test_to_dict_missing_description():
     # Arrange
-    test_data = Book(id = 1,
-                    title="Ocean Book")
+    test_data = Book(id=1,
+                     title="Ocean Book")
 
     # Act
     result = test_data.to_dict()
@@ -80,7 +80,7 @@ def test_from_dict_with_no_title():
     }
 
     # Act & Assert
-    with pytest.raises(KeyError, match = 'title'):
+    with pytest.raises(KeyError, match='title'):
         new_book = Book.from_dict(book_data)
 
 def test_from_dict_with_no_description():
@@ -90,7 +90,7 @@ def test_from_dict_with_no_description():
     }
 
     # Act & Assert
-    with pytest.raises(KeyError, match = 'description'):
+    with pytest.raises(KeyError, match='description'):
         new_book = Book.from_dict(book_data)
 
 def test_from_dict_with_extra_keys():
